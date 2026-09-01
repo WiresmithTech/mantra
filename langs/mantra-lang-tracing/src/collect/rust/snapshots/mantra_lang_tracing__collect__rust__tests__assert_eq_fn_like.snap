@@ -1,0 +1,41 @@
+---
+source: langs/mantra-lang-tracing/src/collect/rust/tests.rs
+info: "\n        fn foo() {\n            assert_eq_req!(\"ID1.assert\" => true, false, \"Optional comment\")\n        }\n        "
+---
+Annotations(
+  traces: [
+    Trace(
+      ids: [
+        RequirementPk(
+          id: "ID1.assert",
+          product_id: None,
+        ),
+      ],
+      line: 3,
+      related_code: Some(CodeBlock(
+        kind: other,
+        span: LineSpan(
+          start: 3,
+          end: 3,
+        ),
+        content_hash: Some("5ace5b1e64cf21e24aef5929f2eb5f5ae43c9bdc70e64958d70ba3b1232ac877"),
+      )),
+      kind: verifies,
+      properties: None,
+    ),
+  ],
+  elements: [
+    Element(
+      ident: None,
+      name: "foo",
+      definition_line: 2,
+      span: LineSpan(
+        start: 2,
+        end: 4,
+      ),
+      kind: function,
+      content_hash: Some("394f2f66164cc35b8b74eec8c7c6c9da8dc5c65277c367767ebf9cbf6a461baa"),
+    ),
+  ],
+  coverage_excludes: [],
+)

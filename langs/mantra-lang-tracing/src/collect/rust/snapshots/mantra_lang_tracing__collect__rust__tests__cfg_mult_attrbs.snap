@@ -1,0 +1,54 @@
+---
+source: langs/mantra-lang-tracing/src/collect/rust/tests.rs
+info: "\n        #[cfg_attr(feature = \"some-feature\", derive(Copy), req(\"ID2\"), req_link(\"ID1\"))]\n        fn foo() {}\n        "
+---
+Annotations(
+  traces: [
+    Trace(
+      ids: [
+        RequirementPk(
+          id: "ID2",
+          product_id: None,
+        ),
+      ],
+      line: 2,
+      related_code: Some(3),
+      kind: satisfies,
+      properties: Some({
+        "cfg_attr": [
+          "feature=\"some-feature\"",
+        ],
+      }),
+    ),
+    Trace(
+      ids: [
+        RequirementPk(
+          id: "ID1",
+          product_id: None,
+        ),
+      ],
+      line: 2,
+      related_code: Some(3),
+      kind: links,
+      properties: Some({
+        "cfg_attr": [
+          "feature=\"some-feature\"",
+        ],
+      }),
+    ),
+  ],
+  elements: [
+    Element(
+      ident: None,
+      name: "foo",
+      definition_line: 3,
+      span: LineSpan(
+        start: 2,
+        end: 3,
+      ),
+      kind: function,
+      content_hash: Some("4e593fad854b60802c04bdf060ee104561f7cd05fff633d08bcff47803e08254"),
+    ),
+  ],
+  coverage_excludes: [],
+)

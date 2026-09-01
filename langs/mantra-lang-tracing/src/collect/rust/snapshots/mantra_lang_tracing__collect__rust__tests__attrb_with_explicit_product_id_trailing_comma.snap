@@ -1,0 +1,34 @@
+---
+source: langs/mantra-lang-tracing/src/collect/rust/tests.rs
+info: "\n        #[req({ id: \"ID1\", product_id: \"product-id\",})]\n        fn foo() {}\n        "
+---
+Annotations(
+  traces: [
+    Trace(
+      ids: [
+        RequirementPk(
+          id: "ID1",
+          product_id: Some("product-id"),
+        ),
+      ],
+      line: 2,
+      related_code: Some(3),
+      kind: satisfies,
+      properties: None,
+    ),
+  ],
+  elements: [
+    Element(
+      ident: None,
+      name: "foo",
+      definition_line: 3,
+      span: LineSpan(
+        start: 2,
+        end: 3,
+      ),
+      kind: function,
+      content_hash: Some("ad9bb973326c78a7586b75d5fcfdc4615899daa3e08f19c2aaefc2ececb70582"),
+    ),
+  ],
+  coverage_excludes: [],
+)

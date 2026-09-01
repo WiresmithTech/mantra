@@ -1,0 +1,41 @@
+---
+source: langs/mantra-lang-tracing/src/collect/rust/tests.rs
+info: "\n        fn foo() {\n            debug_assert_eq_req!(\"ID1.debug_assert\" => 1, 1)\n        }\n        "
+---
+Annotations(
+  traces: [
+    Trace(
+      ids: [
+        RequirementPk(
+          id: "ID1.debug_assert",
+          product_id: None,
+        ),
+      ],
+      line: 3,
+      related_code: Some(CodeBlock(
+        kind: other,
+        span: LineSpan(
+          start: 3,
+          end: 3,
+        ),
+        content_hash: Some("37607adc11cdb5affded6394d44c6873bab7d6c9b58e2da701c448c6df41f9a5"),
+      )),
+      kind: verifies,
+      properties: None,
+    ),
+  ],
+  elements: [
+    Element(
+      ident: None,
+      name: "foo",
+      definition_line: 2,
+      span: LineSpan(
+        start: 2,
+        end: 4,
+      ),
+      kind: function,
+      content_hash: Some("2b36ca7845a23f8de7a7a67f147e6f49c73935aac7dc8a4c990d3bd57f0ac5a5"),
+    ),
+  ],
+  coverage_excludes: [],
+)

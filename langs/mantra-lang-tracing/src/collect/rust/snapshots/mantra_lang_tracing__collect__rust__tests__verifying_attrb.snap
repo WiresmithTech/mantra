@@ -1,0 +1,34 @@
+---
+source: langs/mantra-lang-tracing/src/collect/rust/tests.rs
+info: "\n        #[req_verified(\"ID1\")]\n        fn foo() {}\n        "
+---
+Annotations(
+  traces: [
+    Trace(
+      ids: [
+        RequirementPk(
+          id: "ID1",
+          product_id: None,
+        ),
+      ],
+      line: 2,
+      related_code: Some(3),
+      kind: verifies,
+      properties: None,
+    ),
+  ],
+  elements: [
+    Element(
+      ident: None,
+      name: "foo",
+      definition_line: 3,
+      span: LineSpan(
+        start: 2,
+        end: 3,
+      ),
+      kind: function,
+      content_hash: Some("4c10afb777f05c760dafdb34b6eb63f3a2ceea29431413802d513206420b5d75"),
+    ),
+  ],
+  coverage_excludes: [],
+)
